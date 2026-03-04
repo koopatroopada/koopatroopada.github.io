@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=utf-8">
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+	<!-- title -->
+	
+<title>
+    
+        DEBUG记录：双系统WIFI图标消失&nbsp;&nbsp;✦&nbsp;
+    
+    KoopaTroopa
+</title>
+
+	<!-- keywords,description -->
+	
+
+<meta name="author" content="YM Dai" />
+
+<meta name="keywords" content="DEBUG,Linux" />
+
+<meta name="description" content="前段时间把Linux系统升级到22.04，第一次遇到设置里找不到WIFI开启按钮的情况。在网上搜索信息发现是因为没有WIFI驱动，下载对应的驱动就解决了。这两天又出现相同的情况，但是这一次好像是因为Windows 休眠&amp;#x2F;快速启动，导致WIFI驱动没有被正确加载，当然这是顺利解决问题之后下的判断。在上网搜索信息、排查问题源头的过程中，其实看到了很多可能的原因，对于我这种对硬件和系统没有什么" />
+
+	<!-- favicon -->
+	
+		<link rel="shortcut icon" href="/koopatroopa.ico">
+	
+
+	<!-- css, script -->
+	
+<link rel="stylesheet" href="https://unpkg.com/font-awesome@4.7.0/css/font-awesome.min.css">
+
+	
+<link rel="stylesheet" href="/css/main.css">
+
+
+	
+<script src="https://cdn.jsdelivr.net/npm/darkreader@4.9.58/darkreader.min.js"></script>
+
+	
+<script src="/js/main.js"></script>
+
+
+	<!-- custom css and js -->
+	
+
+
+
+
+
+	<!-- search -->
+	<script async>
+	window.searchEngine = "https://www.bing.com/search?q=" ?? "https://www.google.com/search?q=";
+	window.homeHost = "https://adaicoco.xyz" ?? window.location.host;
+</script>
+
+	<!-- statistics -->
+	
+	<script async reload src="https://cn.vercount.one/js"></script>
+
+
+	<!-- analysis -->
+	
+
+
+<meta name="generator" content="Hexo 8.1.1"></head>
+
+<body>
+	<header id="header">
+	<a id="title" href="/" class="logo">
+		<img id="logo" src="/koopatroopa.ico" alt="logo"/>
+		KoopaTroopa
+	</a>
+
+	<ul id="menu">
+		
+			<li class="menu-item">
+				<a href="/about" class="menu-item-link">About</a>
+			</li>
+		
+		
+			<li class="menu-item">
+				<a href="/tags" class="menu-item-link">Tags</a>
+			</li>
+		
+		
+			<li class="menu-item">
+				<a href="/categories" class="menu-item-link">Categories</a>
+			</li>
+		
+		
+			<li class="menu-item">
+				<a href="https://github.com/koopatroopada" class="menu-item-link item-icon" target="_blank">
+					<i class="fa fa-github fa-2x"></i>
+				</a>
+			</li>
+		
+		
+			<li class="menu-item dark-mode">
+				<a href="#" class="menu-item-link item-icon">
+					<i class="fa fa-moon-o fa-2x"></i>
+				</a>
+			</li>
+
+			<script async>
+				const localModel = localStorage.getItem("darkModel");
+				const darkModel = !localModel ? 0 : localModel;
+
+				const darkModeIcon = document.querySelector("#menu .dark-mode i");
+
+				if (darkModel == 1) {
+					darkModeIcon.classList.replace("fa-moon-o", "fa-sun-o");
+					DarkReader.enable({
+						brightness: 100,
+						contrast: 90,
+						sepia: 10,
+					});
+				}
+
+				darkModeIcon.addEventListener("click", () => {
+					const isMoon = darkModeIcon.classList.contains("fa-moon-o");
+					darkModeIcon.classList.toggle("fa-moon-o", !isMoon);
+					darkModeIcon.classList.toggle("fa-sun-o", isMoon);
+					localStorage.setItem("darkModel", isMoon ? 1 : 0);
+					isMoon ? DarkReader.enable({ brightness: 100, contrast: 90, sepia: 10 }) : DarkReader.disable();
+				});
+			</script>
+		
+	</ul>
+</header>
+
+<script async>
+	let startHeight = 0;
+	window.addEventListener("scroll", () => {
+		const { scrollY: endHeight } = window;
+		const distance = endHeight - startHeight;
+		startHeight = endHeight;
+		document.querySelector("#header").style.display = distance > 0 && endHeight > 50 ? "none" : "";
+	});
+</script>
+	<div id="sidebar">
+	<button id="sidebar-toggle" class="toggle" ><i class="fa fa-arrow-right " aria-hidden="true"></i></button>
+	<div id="site-toc">
+		<input id="search-input" class="search-input" type="search" placeholder="Press Enter to search the entire site">
+		<div id="tree">
+			
+			
+							<ul>
+								<li class="file">
+									<a href="/2026/02/26/in-90and15-minute/" title="/2026/02/26/in-90and15-minute">
+									
+										In 90/15-Minute
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+							<ul>
+								<li class="file active">
+									<a href="/2026/03/04/double-system-wifi/" title="/2026/03/04/double-system-wifi">
+									
+										DEBUG记录：双系统WIFI图标消失
+									
+									</a>
+								</li>
+								<div class="article-toc" style="display: none;"></div>
+							</ul>
+			
+		</div>
+	</div>
+</div>
+
+	<div id="content">
+		<h1 id="article-title">
+	DEBUG记录：双系统WIFI图标消失
+</h1>
+
+<div class="article-meta">
+	<span> YM Dai </span>
+	<span> 2026-03-04 06:23:11 </span>
+	<div id="article-categories">
+		
+			<span>Categories：</span>
+			
+				
+				<span>
+					<i class="fa fa-folder" aria-hidden="true">
+						<a href="/categories/Linux/">
+							Linux
+						</a>
+					</i>
+				
+				</span>
+				
+			
+		
+		
+			<span>Tags：</span>
+			
+				
+					<span>
+						<i class="fa fa-tag" aria-hidden="true">
+							<a href="/tags/DEBUG/">
+								DEBUG
+							</a>
+						</i>
+					</span>
+				
+			
+		
+	</div>
+</div>
+
+<div id="article-content">
+	<p>前段时间把Linux系统升级到22.04，第一次遇到设置里找不到WIFI开启按钮的情况。在网上搜索信息发现是因为没有WIFI驱动，下载对应的驱动就解决了。<br>这两天又出现相同的情况，但是这一次好像是因为Windows 休眠&#x2F;快速启动，导致WIFI驱动没有被正确加载，当然这是顺利解决问题之后下的判断。在上网搜索信息、排查问题源头的过程中，其实看到了很多可能的原因，对于我这种对硬件和系统没有什么深入了解的初学者来说，如何在各种信息中搞清楚原因、锁定一个简单有效的解决方案其实并没有那么简单。我看到有的帖子说是内核的问题，给我吓坏了，之前我就因为内核装得不对，重装了Linux系统。我心想着，这次我也没干啥呀，我绝对没有下载什么我不了解的东西，或者同意我不了解的选项。还有帖子直接重装了Windows系统，又进行了一系列操作，给我吓坏了。我的Windows系统虽然最近不怎么用，但是里面存放着我的来时路（不懂存储不懂分类三个没用的文件混一个可能有用的三个可能有用的混一个不知道什么时候真的会用到的又臭又长长长完全无法备份的数据），重装Windows，不可能重装的。<br>这一次解决问题之顺利，让我想总结一下我的解决过程。以及最重要的，我避开了哪些我之前踩过的坑。不敢想，在我又菜又莽的时期，我真的会莽上一条看起来很专业但是也不一定对的路，也算是一个<del>辛酸debug</del>成长经验总结吧。（不是教程</p>
+<h2 id="搞清楚你是谁"><a href="#搞清楚你是谁" class="headerlink" title="搞清楚你是谁"></a>搞清楚你是谁</h2><blockquote>
+<p>A thousand devices,  a thousand glitches.</p>
+</blockquote>
+<ol>
+<li>系统</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">adai@ZHAN:~$ cat /etc/os-release</span><br><span class="line">PRETTY_NAME=&quot;Ubuntu 22.04.5 LTS&quot;</span><br><span class="line">NAME=&quot;Ubuntu&quot;</span><br><span class="line">VERSION_ID=&quot;22.04&quot;</span><br><span class="line">VERSION=&quot;22.04.5 LTS (Jammy Jellyfish)&quot;</span><br><span class="line">VERSION_CODENAME=jammy</span><br><span class="line">ID=ubuntu</span><br><span class="line">ID_LIKE=debian</span><br><span class="line">HOME_URL=&quot;https://www.ubuntu.com/&quot;</span><br><span class="line">SUPPORT_URL=&quot;https://help.ubuntu.com/&quot;</span><br><span class="line">BUG_REPORT_URL=&quot;https://bugs.launchpad.net/ubuntu/&quot;</span><br><span class="line">PRIVACY_POLICY_URL=&quot;https://www.ubuntu.com/legal/terms-and-policies/privacy-policy&quot;</span><br><span class="line">UBUNTU_CODENAME=jammy</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>内核</li>
+</ol>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adai@ZHAN:~$ uname -a</span><br><span class="line">Linux ZHAN 6.8.0-101-generic #101~22.04.1-Ubuntu SMP PREEMPT_DYNAMIC Wed Feb 11 13:19:54 UTC  x86_64 x86_64 x86_64 GNU/Linux</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如何搞清楚你的电脑系统、硬件等一系列相关的信息？</p>
+<p>事实上，看系统的版本信息和内核信息是一个基本操作啦。但是我在第一次模仿着输入指令，找到对应字符串，到我真正理解为什么这样做，中间其实隔了很久。不一样的是什么呢？上面两个示例展示了查看信息的两条路径，查看文件和借助命令。</p>
+<p>1.通过文件看系统信息。 要知道：一切皆文件。查看你的根目录:<code>cd /</code>,每个目录都有其特定的用途，里面存放着你需要知道的几乎所有信息<del>（不要问我那极小部分没有的信息是什么，我不知道，我这样说只是因为我不敢说得很绝对）</del><br>2.通过命令看系统信息。要知道：你想要的功能，你想了解的信息，很有可能有人制作了更便捷的工具。</p>
+</blockquote>
+<h3 id="根目录下一些文件夹"><a href="#根目录下一些文件夹" class="headerlink" title="根目录下一些文件夹"></a>根目录下一些文件夹</h3><ul>
+<li><code>/bin</code> &amp; <code>/usr/bin</code></li>
+</ul>
+<p>比如经常会看到的<code>bin/</code>或者<code>usr/bin</code>，里面存放着所有用户都能使用的、最基本的系统命令。<code>bin/</code>和<code>usr/bin</code>在有的系统上存储着完全一样的文件，比如我的。<br>可以通过<code>ls</code>查看：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adai@ZHAN:~$ ls -l /bin</span><br><span class="line">rwxrwxrwx 1 root root 7  2月  1 22:15 /bin -&gt; usr/bin</span><br></pre></td></tr></table></figure>
+
+<p>从结果来看，<code>bin/</code>是指向<code>usr/bin</code>的符号链接。<br>也可以通过<code>diff</code>查看</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">adai@ZHAN:~$ diff &lt;(ls /bin) &lt;(ls /usr/bin)</span><br></pre></td></tr></table></figure>
+
+<p>如果没有输出意味着，没有区别。<br>也可以用<code>diff</code>比较具体两个文件的内容是否有区别，也可以写脚本一一比较两个相同名称文件内容有没有区别。</p>
+<blockquote>
+<p>为什么还要保留<code>/bin</code>这个符号链接呢？主要是为了向后兼容。</p>
+</blockquote>
+<ul>
+<li><code>/dev</code><br>这里存放着硬件设备有关的特殊文件。<br>例如，看你的CPU有几个核：</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adai@ZHAN:~$ ls /dev/cpu</span><br><span class="line">0  1  10  11  12  13  14  15  2  3  4  5  6  7  8  9</span><br></pre></td></tr></table></figure>
+<p>读取特定寄存器的值：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">adai@ZHAN:/dev/cpu/0$ sudo rdmsr -a 0x198</span><br><span class="line">1f8900000400</span><br><span class="line">1f0e00001d00</span><br><span class="line">1f8900001d00</span><br><span class="line">1f0e00001d00</span><br><span class="line">1f0e00001d00</span><br><span class="line">1f8900001d00</span><br><span class="line">200300001d00</span><br><span class="line">1fb100001d00</span><br><span class="line">1fb100001500</span><br><span class="line">200300001500</span><br><span class="line">1f6000001500</span><br><span class="line">1f3700001500</span><br><span class="line">200300001400</span><br><span class="line">200300001400</span><br><span class="line">202c00001400</span><br><span class="line">1f8900001400</span><br></pre></td></tr></table></figure>
+<p>这个命令读取所有 CPU 核心的 <code>IA32_PERF_STATUS</code> 寄存器（地址 <code>0x198</code>），这个寄存器记录了 CPU 的当前性能状态。&lt;—地址是怎么知道的？手册&#x2F;源码。（但是我是从AI那里获得这个信息的…）</p>
+<blockquote>
+<p>如何从源码中找到那一行定义？</p>
+</blockquote>
+<p>先找到可能的头文件</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">adai@ZHAN:/dev/cpu/0$ sudo find / -name &quot;msr*.h&quot;</span><br><span class="line">find: ‘/proc/4416/task/4416/net’: Invalid argument</span><br><span class="line">find: ‘/proc/4416/net’: Invalid argument</span><br><span class="line">/usr/include/x86_64-linux-gnu/asm/msr.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-101/arch/x86/include/asm/msr-trace.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-101/arch/x86/include/asm/shared/msr.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-101/arch/x86/include/asm/msr.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-101/arch/x86/include/asm/msr-index.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-101/arch/x86/include/uapi/asm/msr.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-100/arch/x86/include/asm/msr-trace.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-100/arch/x86/include/asm/shared/msr.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-100/arch/x86/include/asm/msr.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-100/arch/x86/include/asm/msr-index.h</span><br><span class="line">/usr/src/linux-hwe-6.8-headers-6.8.0-100/arch/x86/include/uapi/asm/msr.h</span><br><span class="line">find: ‘/run/user/1000/gvfs’: Permission denied</span><br><span class="line">find: ‘/run/user/1000/doc’: Permission denied</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>再在头文件中找到那一行定义</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">adai@ZHAN:/dev/cpu/0$ grep -r &quot;MSR_IA32_PERF&quot; /usr/src/linux-hwe-6.8-headers-6.8.0-101/arch/x86/include/asm/msr-index.h</span><br><span class="line">#define MSR_IA32_PERFCTR0               0x000000c1</span><br><span class="line">#define MSR_IA32_PERFCTR1               0x000000c2</span><br><span class="line">#define MSR_IA32_PERF_CAPABILITIES      0x00000345</span><br><span class="line">#define MSR_IA32_PERF_STATUS            0x00000198</span><br><span class="line">#define MSR_IA32_PERF_CTL               0x00000199</span><br><span class="line">adai@ZHAN:/dev/cpu/0$ </span><br></pre></td></tr></table></figure>
+<p>源文件的定义就是<code>0x198</code>。</p>
+<ul>
+<li><code>/etc</code><br>到了前面看到过的文件夹了，这里面存放的是系统配置文件。事实上，我有一些疑惑，系统到底是什么？看一下<code>/etc</code>里有什么<br>好复杂，先放一放。</li>
+</ul>
+<h3 id="一些有用的命令"><a href="#一些有用的命令" class="headerlink" title="一些有用的命令"></a>一些有用的命令</h3><ul>
+<li><code>uname</code></li>
+<li><code>os-release</code></li>
+<li><code>man</code></li>
+</ul>
+<h2 id="搞清楚你现在怎么样"><a href="#搞清楚你现在怎么样" class="headerlink" title="搞清楚你现在怎么样"></a>搞清楚你现在怎么样</h2><blockquote>
+<p>Report by machine.</p>
+</blockquote>
+<ol>
+<li>报错信息，包括<code>ERROR</code> <code>FATAL</code> <code>WARNING</code>（如果直接显示了）</li>
+<li>日志<br>但是我这一次遇到的问题没有显式的报错信息。所以在一开始，我来描述遇到的问题，只能这样说：啊，我突然看不到我的WIFI图标了，之前还是正常的，我也不知道这几天做了什么特殊的操作，我一直都在正常使用着电脑。恰好我知道我的系统和内核版本，这会有帮助吗？<br>拿着这种信息去互联网上找解决方法很容易找不到对应的解决办法，这只是一个外在的症状表现，就像头疼的原因有很多，只知道头疼这个症状很难开有效的药，我们还需要更细致的诊断，最好能让计算机“告诉”我们问题出现在了哪里。<br>幸运的是，如果程序没有被正确执行，而不是以一种错误的方式执行，在某处一定会有错误报告。日志！</li>
+</ol>
+<p>我仿照  <a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=297679">https://bbs.archlinux.org/viewtopic.php?id=297679</a> 发帖人的问题描述，对问题进行了进一步的诊断。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"># dmesg | grep iwlwifi</span><br><span class="line">[    2.981990] iwlwifi 0000:00:14.3: enabling device (0000 -&gt; 0002)</span><br><span class="line">[    3.282839] iwlwifi 0000:00:14.3: CSR_RESET = 0x11</span><br><span class="line">[    3.282842] iwlwifi 0000:00:14.3: Host monitor block 0x0 vector 0x0</span><br><span class="line">[    3.282940] iwlwifi 0000:00:14.3:     value [iter 0]: 0xbf1d0030</span><br><span class="line">[    3.283421] iwlwifi 0000:00:14.3:     value [iter 1]: 0xbf1d0430</span><br><span class="line">[    3.283505] iwlwifi 0000:00:14.3:     value [iter 2]: 0xbf1d0430</span><br><span class="line">[    3.283591] iwlwifi 0000:00:14.3:     value [iter 3]: 0xbf1d0430</span><br><span class="line">[    3.283670] iwlwifi 0000:00:14.3:     value [iter 4]: 0xbf1d0030</span><br><span class="line">[    3.283778] iwlwifi 0000:00:14.3:     value [iter 5]: 0xbf1d0430</span><br><span class="line">[    3.283881] iwlwifi 0000:00:14.3:     value [iter 6]: 0xbf1d0030</span><br><span class="line">[    3.283984] iwlwifi 0000:00:14.3:     value [iter 7]: 0xbf1d0030</span><br><span class="line">[    3.284087] iwlwifi 0000:00:14.3:     value [iter 8]: 0xbf1d0430</span><br><span class="line">[    3.284189] iwlwifi 0000:00:14.3:     value [iter 9]: 0xbf1d0030</span><br><span class="line">[    3.284292] iwlwifi 0000:00:14.3:     value [iter 10]: 0xbf1d0430</span><br><span class="line">[    3.284394] iwlwifi 0000:00:14.3:     value [iter 11]: 0xbf1d0430</span><br><span class="line">[    3.284499] iwlwifi 0000:00:14.3:     value [iter 12]: 0xbf1d0030</span><br><span class="line">[    3.284600] iwlwifi 0000:00:14.3:     value [iter 13]: 0xbf1d0430</span><br><span class="line">[    3.284704] iwlwifi 0000:00:14.3:     value [iter 14]: 0xbf1d0030</span><br><span class="line">[    3.284704] iwlwifi 0000:00:14.3: Host monitor block 0x0 vector 0x1</span><br><span class="line">[    3.284807] iwlwifi 0000:00:14.3:     value [iter 0]: 0x04006ec2</span><br><span class="line">[    3.284909] iwlwifi 0000:00:14.3:     value [iter 1]: 0x04006ec2</span><br><span class="line">[    3.285013] iwlwifi 0000:00:14.3:     value [iter 2]: 0x04006ec2</span><br><span class="line">[    3.285113] iwlwifi 0000:00:14.3:     value [iter 3]: 0x04006ec2</span><br><span class="line">[    3.285215] iwlwifi 0000:00:14.3:     value [iter 4]: 0x04006ec2</span><br><span class="line">[    3.285317] iwlwifi 0000:00:14.3:     value [iter 5]: 0x04006ec2</span><br><span class="line">[    3.285419] iwlwifi 0000:00:14.3:     value [iter 6]: 0x04006ec2</span><br><span class="line">[    3.285522] iwlwifi 0000:00:14.3:     value [iter 7]: 0x04006ec2</span><br><span class="line">[    3.285624] iwlwifi 0000:00:14.3:     value [iter 8]: 0x04006ec2</span><br><span class="line">[    3.285726] iwlwifi 0000:00:14.3:     value [iter 9]: 0x04006ec2</span><br><span class="line">[    3.285829] iwlwifi 0000:00:14.3:     value [iter 10]: 0x04006ec2</span><br><span class="line">[    3.285932] iwlwifi 0000:00:14.3:     value [iter 11]: 0x04006ec2</span><br><span class="line">[    3.286035] iwlwifi 0000:00:14.3:     value [iter 12]: 0x04006ec2</span><br><span class="line">[    3.286137] iwlwifi 0000:00:14.3:     value [iter 13]: 0x04006ec2</span><br><span class="line">[    3.286240] iwlwifi 0000:00:14.3:     value [iter 14]: 0x04006ec2</span><br><span class="line">[    3.286241] iwlwifi 0000:00:14.3: Host monitor block 0x0 vector 0x6</span><br><span class="line">[    3.286343] iwlwifi 0000:00:14.3:     value [iter 0]: 0xb0043860</span><br><span class="line">[    3.286445] iwlwifi 0000:00:14.3:     value [iter 1]: 0xa0043860</span><br><span class="line">[    3.286547] iwlwifi 0000:00:14.3:     value [iter 2]: 0xa0043860</span><br><span class="line">[    3.286650] iwlwifi 0000:00:14.3:     value [iter 3]: 0xf0043860</span><br><span class="line">[    3.286753] iwlwifi 0000:00:14.3:     value [iter 4]: 0xa0043860</span><br><span class="line">[    3.286855] iwlwifi 0000:00:14.3:     value [iter 5]: 0xb0043860</span><br><span class="line">[    3.286958] iwlwifi 0000:00:14.3:     value [iter 6]: 0xb0043860</span><br><span class="line">[    3.287060] iwlwifi 0000:00:14.3:     value [iter 7]: 0xa0043860</span><br><span class="line">[    3.287164] iwlwifi 0000:00:14.3:     value [iter 8]: 0xb0043860</span><br><span class="line">[    3.287267] iwlwifi 0000:00:14.3:     value [iter 9]: 0xa0043860</span><br><span class="line">[    3.287369] iwlwifi 0000:00:14.3:     value [iter 10]: 0xa0043860</span><br><span class="line">[    3.287471] iwlwifi 0000:00:14.3:     value [iter 11]: 0xb0043860</span><br><span class="line">[    3.287574] iwlwifi 0000:00:14.3:     value [iter 12]: 0xa0043860</span><br><span class="line">[    3.287676] iwlwifi 0000:00:14.3:     value [iter 13]: 0xa0043860</span><br><span class="line">[    3.287781] iwlwifi 0000:00:14.3:     value [iter 14]: 0xb0043860</span><br><span class="line">[    3.287803] iwlwifi 0000:00:14.3: Host monitor block 0x22 vector 0x0</span><br><span class="line">[    3.287882] iwlwifi 0000:00:14.3:     value [iter 0]: 0x59ccc019</span><br><span class="line">[    3.287904] iwlwifi 0000:00:14.3: probe with driver iwlwifi failed with error -110</span><br></pre></td></tr></table></figure>
+<p>（这不是我电脑当时的输出，但是传达的信息是一样的。)事实上，在试图解决一个陌生的问题时，很多操作都是抱着试一试的想法，当我输入这个命令时，我并不知道我能获得什么关键信息，但是这一次我很幸运，我发现了一个<code>error</code>。</p>
+<p>然后我立即把这一行报错信息，输入到浏览器中，最终找到了一个优雅的解决方案  <a target="_blank" rel="noopener" href="https://www.myguye.com/fix-iwlwifi-failed-with-error-110/">https://www.myguye.com/fix-iwlwifi-failed-with-error-110/</a><br>你只需要手动重置一下设备就可以。</p>
+<h2 id="不到最后，不要动系统-内核"><a href="#不到最后，不要动系统-内核" class="headerlink" title="不到最后，不要动系统&#x2F;内核"></a>不到最后，不要动系统&#x2F;内核</h2><blockquote>
+<p>如果一定要动，一定要搞清楚你在尝试做什么，会产生什么影响，并且做好备份和重装系统的准备。</p>
+</blockquote>
+<p>我在查询解决方案时，看到了这几个帖子：<br><a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?pid=2062555#p2062555">https://bbs.archlinux.org/viewtopic.php?pid=2062555#p2062555</a><br><a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=296091">https://bbs.archlinux.org/viewtopic.php?id=296091</a><br><a target="_blank" rel="noopener" href="https://bbs.archlinux.org/viewtopic.php?id=297679">https://bbs.archlinux.org/viewtopic.php?id=297679</a></p>
+<ol>
+<li>It’s very similar to my problem, I think it’s a 6.9 kernel problem or linux firmware package.</li>
+<li>我想我稍后会试试更早的内核版本，以确认这不是当前的内核&#x2F;固件。我相信几个月前我可能有一个较旧的 Ubuntu 能成功运行。</li>
+<li>SOLUTION.  After a lot of reading adn trying the issue i has having it was because i had a WINDOWS before and the fast boot option in windows makes the wifi card stay in a state that that is not posible to reactivate from linux.  <ul>
+<li>I had to reinstall windows.  </li>
+<li>Remove fastboot (In energy configuration)  </li>
+<li>Disable wifi from bios  </li>
+<li>Boot  </li>
+<li>Poweroff  </li>
+<li>Enable wifi  </li>
+<li>Install arch</li>
+</ul>
+</li>
+<li>And an experienced friend said the random occurance is due to kernel’s problem and havn’t been solved yet. <img src="https://bbs.archlinux.org/img/smilies/sad.png" alt="sad"><br>Wondering what does “-110” refer to and how to fix it completely.</li>
+</ol>
+<p>他们多次提到了内核原因，但是大多没有给出一个有效的解决办法。其中一个通过重装Windows系统解决，可是我不想重装。我也不敢动内核，因为上次就是因为Linux内核升级失败，不得不重装系统。如果我没有经历这件事，可能会想办法修复内核。幸好这让我谨慎了一些。</p>
+<h2 id="保持记录和感受"><a href="#保持记录和感受" class="headerlink" title="保持记录和感受"></a>保持记录和感受</h2><blockquote>
+<p>BUG is a friend~ BUG is a friend~~</p>
+</blockquote>
+<p>关于DEBUG的辛酸，可以讲个三天三夜，但是这也好像是少有的让我不眠不休去做的事。因为解决不了，我没办法连WIFI啊！（bushi</p>
+<p>事实上，它让我感受到了很多奇妙的瞬间。在我搜索三小时，找到三行代码，输入终端时，WIFI图标立刻就出现了。我知道我成功了，并且我成功避开了那些复杂布满荆棘的路，因为我在过去与之缠斗的过程中，已经获得了成长，我甚至有些感动。我看着WIFI图标在闪动，它开始连接网络，有一点不真实。所以我把它记录下来，成为历史。</p>
+
+	
+    <div class="copyright-box">
+		<div class="license-box">
+			<div class="license-header">
+				
+				<div class="license-title">
+					DEBUG记录：双系统WIFI图标消失
+				</div>
+				<div class="license-subTitle">https://adaicoco.xyz/2026/03/04/double-system-wifi/index.html</div>
+			</div>
+			<div class="license-meta">
+				
+					<div class="license-meta-item">
+						<div>Author</div>
+						<div>
+							<a href="">
+								YM Dai
+							</a>
+						</div>
+					</div>
+				
+				
+					<div class="license-meta-item license-meta-date">
+					<div>Posted on</div>
+					<div>March 4, 2026</div>
+					</div>
+				
+				
+				
+				
+					<div class="license-meta-item">
+					<div>Licensed under</div>
+					<div>
+						
+						
+						
+							<a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+								<span class="hint--top hint--rounded" aria-label="BY - Attribution">
+									BY - Attribution
+								</span>
+							</a>
+						
+						
+					</div>
+					</div>
+				
+			</div>
+		</div>
+	</div>
+
+</div>
+
+
+    
+
+    
+
+    
+        
+        <script async reload>
+            fetch("https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.9.0/build/styles/tokyo-night-dark.css")
+                .then((response) => response.text())
+                .then((cssContent) => {
+                    const style = document.createElement("style");
+                    
+                        cssContent = cssContent
+                            .replace(".hljs-code,", "")
+                            .replaceAll("_", " ")
+                            .replaceAll("hljs-", "hljs .")
+                            .replaceAll(".hljs", " .highlight")
+                            .replaceAll(".built in", ".built_in")
+                            .replaceAll("title.", "");
+                        const figures = document.querySelectorAll("figure.highlight td.gutter");
+                        figures.forEach(figure=>{
+                            figure.classList.add("highlight");
+                        })
+                    
+                    style.innerHTML = cssContent;
+                    document.head.appendChild(style);
+                })
+                .catch((error) => {
+                    console.error("Error loading CSS:", error);
+                });
+        </script>
+    
+
+
+
+
+
+    <script reload>
+        var targets = document.querySelectorAll("figure.highlight, #article-content > pre:not(.highlight,.hljs)");
+        targets.forEach((block) => {
+            const copyBtn = document.createElement("button");
+            copyBtn.innerHTML = `<i class="fa fa-clone" aria-hidden="true"></i>`;
+            copyBtn.className = "code-copy";
+
+            
+                copyBtn.style.color = "#fff";
+            
+
+            copyBtn.addEventListener("click", () => {
+                const text = block.querySelector("td.code")?.textContent || block.querySelector("code")?.textContent;
+                navigator.clipboard.writeText(text).then(() => {
+                    copyBtn.innerHTML = "Copied!";
+                    setTimeout(() => {
+                        copyBtn.innerHTML = `<i class="fa fa-clone" aria-hidden="true"></i>`;
+                    }, 2000);
+                });
+            });
+            block.appendChild(copyBtn);
+        });
+    </script>
+
+
+
+
+<div class="post-guide">
+	<div class="item left">
+	
+		<a href="/2026/02/26/in-90and15-minute/">
+			<i class="fa fa-angle-left" aria-hidden="true"></i>
+			In 90/15-Minute
+		</a>
+	
+	</div>
+	<div class="item right">
+		
+	</div>
+</div>
+
+
+
+
+	</div>
+
+	<div id="footer">
+	<div>
+		
+			
+				©2024<span>-</span><span>2026
+			
+			
+			</span>
+			<a href="">
+				YM Dai
+			</a>
+		
+		
+			<span id="busuanzi_container_site_pv">
+				Views
+				<span id="vercount_value_page_pv"></span>
+			</span>
+			<span id="busuanzi_container_site_uv">
+				Visitors
+				<span id="vercount_value_site_pv"></span>
+			</span>
+		
+	</div>
+	 <div> Theme <a href="https://github.com/Exisi/hexo-theme-node-tree"	target="_blank">Node-Tree</a> Powered by <a href="https://hexo.io" target="_blank">Hexo</a> </div> 
+</div>
+	<button id="totop-toggle" class="toggle"><i class="fa fa-angle-double-up" aria-hidden="true"></i></button>
+
+<script async>
+    const topTopBtn = document.querySelector("#totop-toggle");
+	topTopBtn.addEventListener("click", () => {
+		window.scrollTo({ top: 0, behavior: "smooth" });
+	});
+</script>
+</body>
+</html>
